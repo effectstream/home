@@ -7,7 +7,7 @@ import './index.css'
 
 createRoot(document.getElementById('root')!).render(
   <StrictMode>
-    <BrowserRouter basename="/">
+    <BrowserRouter basename="/home">
       <Routes>
         <Route path="/" element={<App />} />
         <Route path="/interactive" element={<InteractivePage />} />
