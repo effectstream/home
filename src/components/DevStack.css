@@ -89,6 +89,15 @@
   flex-shrink: 0;
 }
 
+.status-dot-pulse {
+  animation: dot-pulse 1s ease-in-out infinite;
+}
+
+@keyframes dot-pulse {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0.3; }
+}
+
 .col-pid,
 .col-ports,
 .col-started {

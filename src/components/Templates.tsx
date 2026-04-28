@@ -12,7 +12,7 @@ const templates = [
   },
   {
     name: 'Minimal',
-    desc: 'Bare-bones template — just an EVM chain and a state machine.',
+    desc: 'Bare-bones template - just an EVM chain and a state machine.',
     chains: ['EVM'],
     tools: ['Batcher', 'Sync'],
     image: 'https://placehold.co/600x340/1a1a2e/8b5cf6?text=Minimal',

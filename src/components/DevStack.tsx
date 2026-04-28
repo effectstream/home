@@ -1,9 +1,12 @@
+import { useState, useEffect, useRef } from 'react'
 import { motion } from 'framer-motion'
 import './DevStack.css'
 
+type ProcessStatus = 'starting' | 'running' | 'up' | 'done' | 'down' | 'idle'
+
 interface Process {
   name: string
-  status: 'running' | 'up' | 'done' | 'down' | 'idle'
+  status: ProcessStatus
   pid?: number
   ports?: string
   started?: string
@@ -11,11 +14,81 @@ interface Process {
   starred?: boolean
 }
 
-const processes: Process[] = [
+const contractNames = ['build-evm-contracts', 'deploy-evm-contracts']
+
+interface ContractState {
+  status: ProcessStatus
+  pid?: number
+  startedAt?: number
+}
+
+function formatElapsed(startedAt?: number) {
+  if (!startedAt) return '-'
+  const seconds = Math.floor((Date.now() - startedAt) / 1000)
+  if (seconds < 60) return `${seconds}s ago`
+  return `${Math.floor(seconds / 60)}m ago`
+}
+
+function useContractAnimation() {
+  const [statuses, setStatuses] = useState<Record<string, ContractState>>({
+    'build-evm-contracts': { status: 'done', pid: 99921 },
+    'deploy-evm-contracts': { status: 'done', pid: 99947 },
+  })
+  const [, tick] = useState(0)
+  const timeoutsRef = useRef<number[]>([])
+
+  useEffect(() => {
+    const interval = window.setInterval(() => tick(t => t + 1), 1000)
+    return () => clearInterval(interval)
+  }, [])
+
+  useEffect(() => {
+    function runCycle() {
+      timeoutsRef.current.forEach(clearTimeout)
+      timeoutsRef.current = []
+
+      let lastPid = 99900
+      const newPids = contractNames.map(() => {
+        lastPid += Math.floor(Math.random() * 21) + 10
+        return lastPid
+      })
+
+      contractNames.forEach((name, i) => {
+        const offset = i * 15000
+
+        const t1 = window.setTimeout(() => {
+          setStatuses(s => ({ ...s, [name]: { status: 'starting', startedAt: Date.now() } }))
+        }, offset)
+
+        const t2 = window.setTimeout(() => {
+          setStatuses(s => ({ ...s, [name]: { ...s[name], status: 'running', pid: newPids[i] } }))
+        }, offset + 10000)
+
+        const t3 = window.setTimeout(() => {
+          setStatuses(s => ({ ...s, [name]: { ...s[name], status: 'done', pid: newPids[i] } }))
+        }, offset + 20000)
+
+        timeoutsRef.current.push(t1, t2, t3)
+      })
+
+      const restart = window.setTimeout(runCycle, 45000)
+      timeoutsRef.current.push(restart)
+    }
+
+    const initial = window.setTimeout(runCycle, 5000)
+    timeoutsRef.current.push(initial)
+
+    return () => timeoutsRef.current.forEach(clearTimeout)
+  }, [])
+
+  return statuses
+}
+
+const staticProcesses: Process[] = [
   { name: 'hardhat', status: 'up', pid: 108, ports: '8545, 8546' },
   { name: 'hardhat-wait', status: 'done' },
-  { name: 'build-evm-contracts', status: 'done' },
-  { name: 'deploy-evm-contracts', status: 'done' },
+  { name: 'build-evm-contracts', status: 'done', pid: 99921 },
+  { name: 'deploy-evm-contracts', status: 'done', pid: 99947 },
   { name: 'bitcoin-core', status: 'down', ports: '18334, 18443' },
   { name: 'midnight-node', status: 'running', pid: 70784, ports: '9944, 8088, 6300', started: '5m ago' },
   { name: 'midnight-indexer', status: 'running', pid: 70763, started: '5m ago' },
@@ -36,6 +109,7 @@ const processes: Process[] = [
 ]
 
 const statusColor: Record<string, string> = {
+  starting: '#f59e0b',
   running: 'var(--cyan)',
   up: 'var(--cyan)',
   done: 'var(--text-tertiary)',
@@ -44,6 +118,7 @@ const statusColor: Record<string, string> = {
 }
 
 const statusDot: Record<string, string> = {
+  starting: '#f59e0b',
   running: '#06d6a0',
   up: '#06d6a0',
   done: 'var(--text-tertiary)',
@@ -52,6 +127,21 @@ const statusDot: Record<string, string> = {
 }
 
 export default function DevStack() {
+  const contractStatuses = useContractAnimation()
+
+  const processes = staticProcesses.map(p => {
+    if (contractNames.includes(p.name)) {
+      const dynamic = contractStatuses[p.name]
+      return {
+        ...p,
+        status: dynamic.status,
+        pid: dynamic.pid,
+        started: formatElapsed(dynamic.startedAt),
+      }
+    }
+    return p
+  })
+
   return (
     <section className="section" id="devstack">
       <div className="container">
@@ -78,7 +168,7 @@ export default function DevStack() {
           viewport={{ once: true }}
           transition={{ delay: 0.1 }}
         >
-          <span className="brand">EffectStream</span> spins up real blockchain nodes, databases, indexers, and dev tools on your machine. No testnet keys, no cloud accounts — everything runs locally.
+          <span className="brand">EffectStream</span> spins up real blockchain nodes, databases, indexers, and dev tools on your machine. No testnet keys, no cloud accounts - everything runs locally.
         </motion.p>
 
         <motion.div
@@ -120,16 +210,19 @@ export default function DevStack() {
                   {p.name}
                 </span>
                 <span className="col-status" style={{ color: statusColor[p.status] }}>
-                  <span className="status-dot" style={{ background: statusDot[p.status] }} />
-                  {p.status === 'idle' ? '—' : p.status}
+                  <span
+                    className={`status-dot ${p.status === 'starting' ? 'status-dot-pulse' : ''}`}
+                    style={{ background: statusDot[p.status] }}
+                  />
+                  {p.status === 'idle' ? '-' : p.status}
                 </span>
-                <span className="col-pid">{p.pid || '—'}</span>
-                <span className="col-ports">{p.ports || '—'}</span>
+                <span className="col-pid">{p.pid || '-'}</span>
+                <span className="col-ports">{p.ports || '-'}</span>
                 <span className="col-started">
                   {p.link ? (
-                    <a href={p.link} className="devstack-link">{p.started || '—'}</a>
+                    <a href={p.link} className="devstack-link">{p.started || '-'}</a>
                   ) : (
-                    p.started || '—'
+                    p.started || '-'
                   )}
                 </span>
               </motion.div>

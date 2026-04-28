@@ -9,7 +9,7 @@ const chainTips: Record<string, string> = {
   bitcoin: 'The original blockchain. EffectStream tracks UTXO inputs/outputs, Ordinals, and Lightning transactions.',
   arbitrum: 'Ethereum L2 rollup with fast blocks. EffectStream syncs the same EVM primitives at higher throughput.',
   polygon: 'EVM-compatible sidechain with low fees. EffectStream syncs ERC tokens and DeFi protocol events.',
-  cardano: 'UTXO-based chain with native tokens. EffectStream syncs via UTXORpc — asset moves, mints, and Plutus scripts.',
+  cardano: 'UTXO-based chain with native tokens. EffectStream syncs via UTXORpc - asset moves, mints, and Plutus scripts.',
   near: 'Sharded chain with 1-second finality. EffectStream syncs NEP-297 events and contract execution outcomes.',
   celestia: 'Modular data availability layer. EffectStream reads namespace-scoped blobs and blob commitments.',
   avail: 'Data availability layer for rollups. EffectStream syncs application-specific data submissions.',

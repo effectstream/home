@@ -55,7 +55,7 @@ export default function BentoGrid() {
               </svg>
             </div>
             <h3>Crash-Safe Batcher</h3>
-            <p>Aggregates user inputs across chains and submits them in batches. Storage is the single source of truth — zero data loss on restart. Flexible strategies: time, size, value, hybrid, or custom.</p>
+            <p>Aggregates user inputs across chains and submits them in batches. Storage is the single source of truth - zero data loss on restart. Flexible strategies: time, size, value, hybrid, or custom.</p>
           </motion.div>
 
           <motion.div
@@ -97,14 +97,14 @@ export default function BentoGrid() {
               </svg>
             </div>
             <h3>Sync Protocols, Primitives &amp; Batcher Adapters</h3>
-            <p><span className="brand">EffectStream</span> has three layers. <strong>Sync Protocols</strong> connect to a chain. <strong>Primitives</strong> are the specific data feeds within each protocol (ERC-20 transfers, UTXO outputs, etc.). <strong>Batcher Adapters</strong> write transactions back. Mix and match — read Bitcoin UTXOs and submit to Midnight.</p>
+            <p><span className="brand">EffectStream</span> has three layers. <strong>Sync Protocols</strong> connect to a chain. <strong>Primitives</strong> are the specific data feeds within each protocol (ERC-20 transfers, UTXO outputs, etc.). <strong>Batcher Adapters</strong> write transactions back. Mix and match - read Bitcoin UTXOs and submit to Midnight.</p>
             <div className="bento-three-col">
               <div className="bento-col">
                 <span className="bento-col-label">
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="var(--text-secondary)" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round"><circle cx="12" cy="12" r="9"/><path d="M12 8v4l3 3"/></svg>
                   Sync Protocols
                 </span>
-                <p className="bento-col-desc">One per chain — connects and reads blocks</p>
+                <p className="bento-col-desc">One per chain - connects and reads blocks</p>
                 <div className="bento-pill-group">
                   {['EVM', 'Bitcoin', 'Cardano', 'NEAR', 'Midnight', 'Avail', 'Celestia', 'NTP'].map(p => (
                     <span key={p} className="pill pill-neutral">{p}</span>
@@ -247,7 +247,7 @@ export default function BentoGrid() {
               </svg>
             </div>
             <h3>REST API with OpenAPI</h3>
-            <p>The batcher exposes a Fastify HTTP API — submit inputs, check queue stats, force batches. Built-in rate limiting, configurable confirmation levels, and auto-generated OpenAPI docs.</p>
+            <p>The batcher exposes a Fastify HTTP API - submit inputs, check queue stats, force batches. Built-in rate limiting, configurable confirmation levels, and auto-generated OpenAPI docs.</p>
           </motion.div>
 
           <motion.div

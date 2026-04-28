@@ -120,7 +120,7 @@ export default function PipelineCanvas({ enabledChains, enabledPrimitives, onRow
         timers.set(chain.id, now)
         const y = getChainY(chain.id)
 
-        // Assign merge group — every 3-5 blocks get the same group
+        // Assign merge group - every 3-5 blocks get the same group
         if (Math.random() < 0.3) mergeCounter++
 
         let block = blocks.find(b => b.stage === 'done')
@@ -244,9 +244,9 @@ export default function PipelineCanvas({ enabledChains, enabledPrimitives, onRow
       roundedRect(ctx, smX, smY, smW, smH, 14)
       ctx.stroke()
 
-      // (SM label removed — now a DOM overlay above the canvas)
+      // (SM label removed - now a DOM overlay above the canvas)
 
-      // (SM sub-labels removed — now DOM overlays below canvas)
+      // (SM sub-labels removed - now DOM overlays below canvas)
 
       // Animated gear
       drawGear(ctx, smX + smW / 2, ch / 2, 16, 'rgba(139, 92, 246, 0.15)', frameCount * 0.5)
@@ -268,7 +268,7 @@ export default function PipelineCanvas({ enabledChains, enabledPrimitives, onRow
       const dbTopY = ch / 2 - dbH / 2
       drawCylinder(ctx, dbCenterX, dbTopY, dbW, dbH, 'rgba(6, 214, 160, 0.08)', 'rgba(6, 214, 160, 0.18)')
 
-      // (DB label + rows counter removed — now DOM overlays)
+      // (DB label + rows counter removed - now DOM overlays)
 
       // Batcher column line (like the EffectStream merge column)
       const batcherX = cw * ZONE_BATCHER
@@ -437,7 +437,7 @@ export default function PipelineCanvas({ enabledChains, enabledPrimitives, onRow
           ctx.stroke()
         }
 
-        // Processing effects — orbiting particles + size pulse
+        // Processing effects - orbiting particles + size pulse
         if (block.stage === 'processing') {
           const smProgress = (block.x - ZONE_SM_START) / (ZONE_SM_END - ZONE_SM_START)
           const time = frameCount * 0.08
@@ -524,7 +524,7 @@ export default function PipelineCanvas({ enabledChains, enabledPrimitives, onRow
         const py = wb.y
         const [r, g, b] = wb.color
 
-        // Glow — single chain color
+        // Glow - single chain color
         const glowR = wb.size * 3.5
         const grad = ctx.createRadialGradient(px, py, 0, px, py, glowR)
         grad.addColorStop(0, `rgba(${r}, ${g}, ${b}, ${0.3 * wb.opacity})`)
@@ -554,7 +554,7 @@ export default function PipelineCanvas({ enabledChains, enabledPrimitives, onRow
         ctx.textAlign = 'center'
         ctx.fillText(wb.chainName, px, py - s - 4)
 
-        // Trail particles — same chain color
+        // Trail particles - same chain color
         for (let t = 1; t <= 5; t++) {
           const tx = px - t * 7
           const trailAlpha = (0.35 - t * 0.06) * wb.opacity
@@ -579,7 +579,7 @@ export default function PipelineCanvas({ enabledChains, enabledPrimitives, onRow
       updateBlocks()
       updateWritebacks()
 
-      // Report rows to parent (throttled — every 30 frames)
+      // Report rows to parent (throttled - every 30 frames)
       if (frameCount % 30 === 0) {
         onRowsRef.current?.(rows)
       }

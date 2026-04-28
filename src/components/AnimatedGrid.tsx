@@ -27,7 +27,7 @@ interface ActiveCell {
   peak: number
   phase: Phase
   holdLeft: number
-  holdTotal: number   // original hold duration — used to detect midpoint
+  holdTotal: number   // original hold duration - used to detect midpoint
   fadeSpeed: number
   colorIdx: number
   sparkSpawned: boolean

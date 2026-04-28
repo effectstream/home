@@ -46,7 +46,7 @@ export default function QuickStart() {
               viewport={{ once: true }}
               transition={{ delay: 0.1 }}
             >
-              Clone, install, launch. The orchestrator handles everything — local chains, database, batcher, explorer. You just write your state machine.
+              Clone, install, launch. The orchestrator handles everything - local chains, database, batcher, explorer. You just write your state machine.
             </motion.p>
 
             <motion.div

@@ -102,7 +102,7 @@ export default function PipelineViz() {
                 </Tooltip>
               </span>
               <span className="canvas-zone-anchor" style={{ left: '44%' }}>
-                <Tooltip text="Your custom logic runs here — state machines, callbacks, and scheduled tasks process the merged data deterministically." position="bottom">
+                <Tooltip text="Your custom logic runs here - state machines, callbacks, and scheduled tasks process the merged data deterministically." position="bottom">
                   <span className="canvas-zone-label zone-label-purple">State Machine</span>
                 </Tooltip>
               </span>
@@ -112,7 +112,7 @@ export default function PipelineViz() {
                 </Tooltip>
               </span>
               <span className="canvas-zone-anchor" style={{ left: '88%' }}>
-                <Tooltip text="Batcher Adapters submit transactions back to the source chains — settling results, updating contracts, or triggering on-chain actions." position="bottom">
+                <Tooltip text="Batcher Adapters submit transactions back to the source chains - settling results, updating contracts, or triggering on-chain actions." position="bottom">
                   <span className="canvas-zone-label zone-label-magenta">Batcher</span>
                 </Tooltip>
               </span>
