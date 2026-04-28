@@ -31,6 +31,7 @@ export default function Header() {
           <a href="#pipeline">How It Works</a>
           <a href="#quickstart">Quick Start</a>
           <a href="#templates">Examples</a>
+          <a href="https://effectstream.github.io/docs/blog" target="_blank" rel="noopener">Blog</a>
           <a href="https://effectstream.github.io/docs/" target="_blank" rel="noopener">Docs</a>
         </nav>
         <motion.a

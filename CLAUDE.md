@@ -39,11 +39,15 @@ Framer Motion is used throughout for scroll-triggered animations (whileInView), 
 
 ## Deployment
 
-Hosted on Cloudflare Pages (project: `effectstream`). Deploy with:
+Hosted on GitHub Pages at https://effectstream.github.io/home/
+
+Vite builds to the `docs/` folder (served from `main` branch). To deploy:
 
 ```
-bun run build && npx wrangler pages deploy dist --project-name effectstream
+bun run build
 ```
+
+Then commit and push the updated `docs/` directory.
 
 ## Key Patterns
 
