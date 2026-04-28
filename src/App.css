@@ -1,0 +1,61 @@
+/* ── Shared backdrop spanning Hero + Bento ── */
+.backdrop {
+  position: relative;
+  overflow: hidden;
+}
+
+/* Gradient fade to background color at the bottom */
+.backdrop::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 300px;
+  background: linear-gradient(to bottom, transparent, var(--bg));
+  pointer-events: none;
+  z-index: 1;
+}
+
+.backdrop-aurora {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+}
+
+.aurora-blob {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(120px);
+  opacity: 0.35;
+  transition: transform 0.8s cubic-bezier(0.25, 0.1, 0.25, 1);
+  will-change: transform;
+}
+
+.blob-cyan {
+  width: 600px;
+  height: 600px;
+  background: var(--cyan);
+  top: -5%;
+  right: -5%;
+  opacity: 0.25;
+}
+
+.blob-purple {
+  width: 500px;
+  height: 500px;
+  background: var(--purple);
+  bottom: -10%;
+  left: -10%;
+  opacity: 0.2;
+}
+
+.blob-magenta {
+  width: 400px;
+  height: 400px;
+  background: var(--magenta);
+  top: 30%;
+  left: 50%;
+  opacity: 0.12;
+}
