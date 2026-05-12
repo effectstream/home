@@ -1,54 +1,112 @@
 import { motion } from 'framer-motion'
 import './Templates.css'
 
+const REPO = 'https://github.com/effectstream/effectstream/tree/v-next-bun-start'
+
 const templates = [
   {
-    name: 'EVM + Midnight',
-    desc: 'Cross-chain starter with EVM contracts and Midnight privacy.',
-    chains: ['EVM', 'Midnight'],
-    tools: ['Batcher', 'Sync', 'Explorer'],
-    image: 'https://placehold.co/600x340/1a1a2e/06d6a0?text=EVM+%2B+Midnight',
+    name: 'EVM-Cardano Dev Environment',
+    desc: 'Full local multi-chain dev setup with Hardhat, YACI DevKit, and Dolos. Spin up EVM + Cardano in minutes.',
+    chains: ['EVM', 'Cardano'],
+    tools: ['DEMO'],
+    image: '/home/evm-cardano-2.png',
     accent: 'var(--cyan)',
+    code: `${REPO}/templates/evm-cardano`,
   },
   {
-    name: 'Minimal',
-    desc: 'Bare-bones template - just an EVM chain and a state machine.',
-    chains: ['EVM'],
-    tools: ['Batcher', 'Sync'],
-    image: 'https://placehold.co/600x340/1a1a2e/8b5cf6?text=Minimal',
-    accent: 'var(--purple)',
-  },
-  {
-    name: 'Chess',
-    desc: 'Fully on-chain chess game with move validation and matchmaking.',
-    chains: ['EVM'],
-    tools: ['Batcher', 'State Machine', 'Frontend'],
-    image: 'https://placehold.co/600x340/1a1a2e/ec4899?text=Chess',
-    accent: 'var(--magenta)',
-  },
-  {
-    name: 'Dice',
-    desc: 'Simple dice game with random number generation and betting.',
-    chains: ['EVM'],
-    tools: ['Batcher', 'State Machine'],
-    image: 'https://placehold.co/600x340/1a1a2e/f59e0b?text=Dice',
+    name: 'Safe Solver',
+    desc: 'Fast interactive multichain game. Deterministic random per block, L2 interaction for game execution on Arbitrum + Midnight.',
+    chains: ['Arbitrum', 'Midnight'],
+    tools: ['Game'],
+    image: '/home/ss.png',
     accent: '#f59e0b',
+    code: 'https://github.com/effectstream/safe-solver',
+    liveUrl: 'https://safesolver.midnight.fun/',
   },
   {
-    name: 'Rock Paper Scissors',
-    desc: 'Commit-reveal RPS with cross-chain settlement.',
-    chains: ['EVM', 'Midnight'],
-    tools: ['Batcher', 'Sync', 'Frontend'],
-    image: 'https://placehold.co/600x340/1a1a2e/06d6a0?text=Rock+Paper+Scissors',
-    accent: 'var(--cyan)',
-  },
-  {
-    name: 'World Map 2D',
-    desc: 'Shared world map with tile-based state and multi-player sync.',
-    chains: ['EVM'],
-    tools: ['Batcher', 'Sync', 'State Machine', 'Frontend'],
-    image: 'https://placehold.co/600x340/1a1a2e/8b5cf6?text=World+Map+2D',
+    name: 'Kachina Kolosseum',
+    desc: 'Multiplayer Midnight ZK game with browser proofs. Commit-reveal scheme written in Compact language.',
+    chains: ['Midnight'],
+    tools: ['Game'],
+    image: '/home/kk.png',
     accent: 'var(--purple)',
+    code: 'https://github.com/PaimaStudios/pvp-arena',
+    liveUrl: 'https://kachina.midnight.fun/',
+  },
+  {
+    name: 'Block Kart Legends',
+    desc: 'Complex on-chain TypeScript simulation. Deterministic L2 based on EVM + Midnight blocks executes race simulations.',
+    chains: ['Arbitrum', 'Midnight'],
+    tools: ['Game'],
+    image: '/home/bkl.png',
+    accent: 'var(--cyan)',
+    code: 'https://github.com/effectstream/block-kart-legends',
+    liveUrl: 'https://blockkart.paimastudios.com/',
+  },
+  {
+    name: 'Dust-2-Dust',
+    desc: 'Roguelike deck builder fully written in Compact. Proves ZK languages can encode complex game behaviors. WASM browser proofs.',
+    chains: ['Midnight'],
+    tools: ['Game'],
+    image: '/home/d2d.png',
+    accent: 'var(--magenta)',
+    code: 'https://github.com/PaimaStudios/midnight-game-2/',
+    liveUrl: 'https://dust2dust.midnight.fun/',
+  },
+  {
+    name: 'Quest for Tokens',
+    desc: 'AI NPC judges player answers and awards tokens. Deterministic LLM via Shinkai for on-chain consensus.',
+    chains: ['EVM', 'AI'],
+    tools: ['Game'],
+    image: '/home/taiko1.png',
+    accent: 'var(--purple)',
+    code: `${REPO}/templates/shinkai-v2`,
+    liveUrl: 'https://taiko-demo.paimastudios.com/',
+  },
+  {
+    name: 'Go Fish',
+    desc: 'ZK implementation of Mental Poker. Trustless card games on a ZK contract, applicable to any card-like game.',
+    chains: ['Midnight'],
+    tools: ['Game'],
+    image: '/home/gofish.png',
+    accent: '#f59e0b',
+    code: 'https://github.com/effectstream/go-fish',
+  },
+  {
+    name: 'Private Delegation Voting',
+    desc: 'Governance votes weighted by Cardano stake delegation, with ballots kept private via Midnight ZK proofs.',
+    chains: ['Cardano', 'Midnight'],
+    tools: ['ZK'],
+    image: '/home/zk-cardano.png',
+    accent: 'var(--cyan)',
+    code: `${REPO}/templates/zk-cardano`,
+  },
+  {
+    name: 'NFT Launchpad',
+    desc: 'Cross-chain NFT pre-order platform. Cardano and EVM payments, campaign management, and proof of ownership.',
+    chains: ['EVM', 'Cardano'],
+    tools: ['Hololocker'],
+    image: '/home/preorder-2.png',
+    accent: 'var(--magenta)',
+    code: `${REPO}/templates/preorder`,
+  },
+  {
+    name: 'Stake Pool Delegation',
+    desc: 'React to Cardano delegation changes in real-time. PoolDelegation primitive via Dolos and UTxORPC Watch.',
+    chains: ['Cardano'],
+    tools: ['Stake-pools'],
+    image: '/home/delegate-pool1.png',
+    accent: 'var(--purple)',
+    code: `${REPO}/templates/cardano-delegation`,
+  },
+  {
+    name: 'Celestia DA Demo',
+    desc: 'High-throughput data availability with Celestia. Batcher posts batches to DA layer while settling on EVM.',
+    chains: ['EVM', 'Celestia'],
+    tools: ['ZSwap'],
+    image: '/home/da-main.png',
+    accent: 'var(--cyan)',
+    code: `${REPO}/bun-zswap-da`,
   },
 ]
 
@@ -84,9 +142,12 @@ export default function Templates() {
 
         <div className="templates-grid">
           {templates.map((t, i) => (
-            <motion.div
+            <motion.a
               key={t.name}
               className="template-card glass"
+              href={t.code}
+              target="_blank"
+              rel="noopener noreferrer"
               initial={{ opacity: 0, y: 25 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
@@ -110,19 +171,22 @@ export default function Templates() {
                   ))}
                 </div>
 
-                <motion.a
-                  href="#quickstart"
-                  className="template-cta"
-                  whileHover={{ x: 4 }}
-                  transition={{ type: 'spring', stiffness: 400, damping: 20 }}
-                >
-                  Get started now
-                  <svg width="14" height="14" viewBox="0 0 16 16" fill="none">
-                    <path d="M3 8h10m0 0L9 4m4 4L9 12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
-                  </svg>
-                </motion.a>
+                {t.liveUrl && (
+                  <div className="template-actions">
+                    <span
+                      className="template-live"
+                      onClick={(e) => {
+                        e.preventDefault()
+                        e.stopPropagation()
+                        window.open(t.liveUrl, '_blank')
+                      }}
+                    >
+                      Try live
+                    </span>
+                  </div>
+                )}
               </div>
-            </motion.div>
+            </motion.a>
           ))}
         </div>
       </div>

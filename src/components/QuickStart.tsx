@@ -2,11 +2,9 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import './QuickStart.css'
 
-const commands = `git clone https://github.com/PaimaStudios/paima-engine.git --branch v-next
-cd paima-engine/templates/evm-midnight
-../check.sh
-bun install --allow-scripts && ./patch.sh
-bun run build:evm && bun run build:midnight
+const commands = `git clone https://github.com/effectstream/effectstream.git --branch v-next-bun-start
+cd effectstream/templates/evm-midnight-v2
+bun i
 bun run dev`
 
 export default function QuickStart() {
