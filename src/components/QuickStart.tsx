@@ -2,7 +2,7 @@ import { useState } from 'react'
 import { motion } from 'framer-motion'
 import './QuickStart.css'
 
-const commands = `git clone https://github.com/effectstream/effectstream.git --branch v-next-bun-start
+const commands = `git clone https://github.com/effectstream/effectstream.git
 cd effectstream/templates/evm-midnight-v2
 bun i
 bun run dev`

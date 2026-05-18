@@ -1,7 +1,7 @@
 import { motion } from 'framer-motion'
 import './Templates.css'
 
-const REPO = 'https://github.com/effectstream/effectstream/tree/v-next-bun-start'
+const REPO = 'https://github.com/effectstream/effectstream/tree/v-next'
 
 const templates = [
   {
@@ -61,7 +61,7 @@ const templates = [
     image: '/home/taiko1.png',
     accent: 'var(--purple)',
     code: `${REPO}/templates/shinkai-v2`,
-    liveUrl: 'https://taiko-demo.paimastudios.com/',
+    liveUrl: 'https://tokenquest.zkdojo.com/',
   },
   {
     name: 'Go Fish',
