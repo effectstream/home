@@ -1,0 +1,47 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 800 450" font-family="'JetBrains Mono', 'SF Mono', Menlo, monospace">
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#0b0714"/>
+      <stop offset="1" stop-color="#120a26"/>
+    </linearGradient>
+    <linearGradient id="sol" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#00FFA3"/>
+      <stop offset="1" stop-color="#DC1FFF"/>
+    </linearGradient>
+    <linearGradient id="glow" x1="0" y1="0" x2="1" y2="0">
+      <stop offset="0" stop-color="#9945FF" stop-opacity="0.35"/>
+      <stop offset="1" stop-color="#14F195" stop-opacity="0.25"/>
+    </linearGradient>
+  </defs>
+
+  <rect width="800" height="450" fill="url(#bg)"/>
+  <ellipse cx="640" cy="60" rx="320" ry="180" fill="#9945FF" opacity="0.12"/>
+  <ellipse cx="120" cy="420" rx="300" ry="160" fill="#14F195" opacity="0.08"/>
+
+  <!-- Solana mark -->
+  <g transform="translate(70, 92) scale(0.22)">
+    <path fill="url(#sol)" d="M64.6 237.9c2.4-2.4 5.7-3.8 9.2-3.8h317.4c5.8 0 8.7 7 4.6 11.1l-62.7 62.7c-2.4 2.4-5.7 3.8-9.2 3.8H6.5c-5.8 0-8.7-7-4.6-11.1l62.7-62.7z"/>
+    <path fill="url(#sol)" d="M64.6 3.8C67.1 1.4 70.4 0 73.8 0h317.4c5.8 0 8.7 7 4.6 11.1l-62.7 62.7c-2.4 2.4-5.7 3.8-9.2 3.8H6.5c-5.8 0-8.7-7-4.6-11.1L64.6 3.8z"/>
+    <path fill="url(#sol)" d="M333.1 120.1c-2.4-2.4-5.7-3.8-9.2-3.8H6.5c-5.8 0-8.7 7-4.6 11.1l62.7 62.7c2.4 2.4 5.7 3.8 9.2 3.8h317.4c5.8 0 8.7-7 4.6-11.1l-62.7-62.7z"/>
+  </g>
+
+  <text x="185" y="115" fill="#f5f3ff" font-size="34" font-weight="700" font-family="Outfit, Inter, sans-serif">Solana Starter</text>
+  <text x="185" y="145" fill="#a9a3c2" font-size="15" font-family="Inter, sans-serif">counter program · sync node · fee-payer batcher</text>
+
+  <!-- terminal window -->
+  <rect x="70" y="185" width="660" height="205" rx="12" fill="#0d0a1a" stroke="url(#glow)" stroke-width="1.5"/>
+  <circle cx="94" cy="209" r="5" fill="#ff5f57"/>
+  <circle cx="112" cy="209" r="5" fill="#febc2e"/>
+  <circle cx="130" cy="209" r="5" fill="#28c840"/>
+
+  <text x="94" y="248" font-size="14" fill="#8b8699">$ <tspan fill="#e9e6f5">bun run dev</tspan></text>
+  <text x="94" y="274" font-size="13" fill="#14F195">✓ solana-test-validator</text>
+  <text x="330" y="274" font-size="13" fill="#8b8699">8899, 8900</text>
+  <text x="94" y="298" font-size="13" fill="#14F195">✓ counter program deployed</text>
+  <text x="94" y="322" font-size="13" fill="#14F195">✓ sync node</text>
+  <text x="330" y="322" font-size="13" fill="#8b8699">indexing program logs</text>
+  <text x="94" y="346" font-size="13" fill="#14F195">✓ batcher</text>
+  <text x="330" y="346" font-size="13" fill="#8b8699">fee-payer sponsor</text>
+  <text x="94" y="372" font-size="13" fill="#9945FF">➜ frontend</text>
+  <text x="330" y="372" font-size="13" fill="#e9e6f5">http://localhost:5173</text>
+</svg>

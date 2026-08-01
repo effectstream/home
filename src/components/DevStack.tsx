@@ -94,6 +94,7 @@ const staticProcesses: Process[] = [
   { name: 'midnight-indexer', status: 'running', pid: 70763, started: '5m ago' },
   { name: 'midnight-proof-server', status: 'running', pid: 70765, started: '5m ago' },
   { name: 'midnight-node-wait', status: 'done', pid: 70762 },
+  { name: 'solana-test-validator', status: 'down', ports: '8899, 8900' },
   { name: 'avail-client', status: 'down', ports: '9955, 30334' },
   { name: 'cardano-node', status: 'down', ports: '8090, 10000, 3001' },
   { name: 'dolos', status: 'down', ports: '3000, 50051' },
