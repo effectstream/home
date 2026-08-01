@@ -34,7 +34,7 @@ export default function Hero() {
           transition={{ duration: 0.6, delay: 0.4 }}
         >
           <span className="brand">EffectStream</span> is an open-source rollup framework that connects
-          EVM, Midnight, Bitcoin, Cardano, and more into a single
+          EVM, Solana, Midnight, Bitcoin, Cardano, and more into a single
           deterministic state machine.
         </motion.p>
 

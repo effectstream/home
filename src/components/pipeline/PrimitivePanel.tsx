@@ -29,6 +29,9 @@ const primTips: Record<string, string> = {
   plutus: 'Sync Plutus smart contract executions and validator scripts on Cardano.',
   'native-tokens': 'Track Cardano native token movements - no smart contract needed.',
   nfts: 'Track Cardano NFTs minted under specific policy IDs.',
+  // Solana
+  'program-logs': 'Capture log lines emitted by a watched Solana program, attributed per transaction.',
+  'account-balance': 'Track lamport balance changes for watched Solana accounts.',
   // NEAR
   nep141: 'Sync NEP-141 fungible token events - the NEAR equivalent of ERC-20.',
   'ref-finance': 'Sync Ref Finance DEX events on NEAR - swaps and liquidity.',

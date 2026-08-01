@@ -14,6 +14,15 @@ const templates = [
     code: `${REPO}/templates/evm-cardano`,
   },
   {
+    name: 'Solana Starter',
+    desc: 'Minimal end-to-end Solana dApp. Counter program, log-syncing indexer, gas-sponsoring fee-payer batcher, and a Phantom-ready React frontend.',
+    chains: ['Solana'],
+    tools: ['DEMO'],
+    image: '/home/solana-starter.svg',
+    accent: '#9945FF',
+    code: `${REPO}/templates/solana-starter`,
+  },
+  {
     name: 'Safe Solver',
     desc: 'Fast interactive multichain game. Deterministic random per block, L2 interaction for game execution on Arbitrum + Midnight.',
     chains: ['Arbitrum', 'Midnight'],
@@ -30,7 +39,7 @@ const templates = [
     tools: ['Game'],
     image: '/home/kk.png',
     accent: 'var(--purple)',
-    code: 'https://github.com/PaimaStudios/pvp-arena',
+    code: 'https://github.com/effectstream/kachina-colosseum',
     liveUrl: 'https://kachina.midnight.fun/',
   },
   {
@@ -50,7 +59,7 @@ const templates = [
     tools: ['Game'],
     image: '/home/d2d.png',
     accent: 'var(--magenta)',
-    code: 'https://github.com/PaimaStudios/midnight-game-2/',
+    code: 'https://github.com/effectstream/dust-to-dust',
     liveUrl: 'https://dust2dust.midnight.fun/',
   },
   {
@@ -106,7 +115,7 @@ const templates = [
     tools: ['ZSwap'],
     image: '/home/da-main.png',
     accent: 'var(--cyan)',
-    code: `${REPO}/bun-zswap-da`,
+    code: `${REPO}/templates/zswap-da`,
   },
 ]
 

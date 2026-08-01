@@ -10,6 +10,7 @@ const chainTips: Record<string, string> = {
   arbitrum: 'Ethereum L2 rollup with fast blocks. EffectStream syncs the same EVM primitives at higher throughput.',
   polygon: 'EVM-compatible sidechain with low fees. EffectStream syncs ERC tokens and DeFi protocol events.',
   cardano: 'UTXO-based chain with native tokens. EffectStream syncs via UTXORpc - asset moves, mints, and Plutus scripts.',
+  solana: 'High-throughput chain with ~400ms slots. EffectStream polls slots via JSON-RPC and syncs program logs and account balances.',
   near: 'Sharded chain with 1-second finality. EffectStream syncs NEP-297 events and contract execution outcomes.',
   celestia: 'Modular data availability layer. EffectStream reads namespace-scoped blobs and blob commitments.',
   avail: 'Data availability layer for rollups. EffectStream syncs application-specific data submissions.',

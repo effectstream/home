@@ -72,6 +72,14 @@ export const CHAINS: ChainConfig[] = [
     ],
   },
   {
+    id: 'solana', name: 'Solana', blockTimeMs: 400, blockTimeLabel: '~0.4s',
+    color: '#9945FF', colorRgb: [153, 69, 255],
+    primitives: [
+      { id: 'program-logs', name: 'Program Logs', chainId: 'solana' },
+      { id: 'account-balance', name: 'Account Balance', chainId: 'solana' },
+    ],
+  },
+  {
     id: 'near', name: 'NEAR', blockTimeMs: 1_200, blockTimeLabel: '~1.2s',
     color: '#00EC97', colorRgb: [0, 236, 151],
     primitives: [

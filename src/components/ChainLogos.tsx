@@ -6,6 +6,7 @@ import arbLogo from '../assets/logos/arbitrum.svg'
 import opLogo from '../assets/logos/optimism.svg'
 import baseLogo from '../assets/logos/base.svg'
 import midLogo from '../assets/logos/midnight-white.svg'
+import solLogo from '../assets/logos/solana.svg'
 import btcLogo from '../assets/logos/bitcoin.svg'
 import adaLogo from '../assets/logos/cardano-white.svg'
 import availLogo from '../assets/logos/avail.svg'
@@ -35,6 +36,10 @@ export const chainData: { name: string; logos: React.JSX.Element[]; more?: numbe
   {
     name: 'Midnight',
     logos: [logo(midLogo, 'Midnight')],
+  },
+  {
+    name: 'Solana',
+    logos: [logo(solLogo, 'Solana')],
   },
   {
     name: 'Bitcoin',

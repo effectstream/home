@@ -106,7 +106,7 @@ export default function BentoGrid() {
                 </span>
                 <p className="bento-col-desc">One per chain - connects and reads blocks</p>
                 <div className="bento-pill-group">
-                  {['EVM', 'Bitcoin', 'Cardano', 'NEAR', 'Midnight', 'Avail', 'Celestia', 'NTP'].map(p => (
+                  {['EVM', 'Solana', 'Bitcoin', 'Cardano', 'NEAR', 'Midnight', 'Avail', 'Celestia', 'NTP'].map(p => (
                     <span key={p} className="pill pill-neutral">{p}</span>
                   ))}
                   <span className="pill pill-more">+ more</span>
@@ -129,6 +129,10 @@ export default function BentoGrid() {
                   ))}
                   <span className="pill pill-chain-label">Cardano</span>
                   {['UTXORpc', 'Asset Moves', 'Asset Mints'].map(f => (
+                    <span key={f} className="pill pill-chain">{f}</span>
+                  ))}
+                  <span className="pill pill-chain-label">Solana</span>
+                  {['Program Logs', 'Account Balance'].map(f => (
                     <span key={f} className="pill pill-chain">{f}</span>
                   ))}
                   <span className="pill pill-chain-label">NEAR</span>
@@ -155,6 +159,10 @@ export default function BentoGrid() {
                   ))}
                   <span className="pill pill-tool-label">Midnight</span>
                   {['Circuits', 'Balancing'].map(a => (
+                    <span key={a} className="pill pill-tool">{a}</span>
+                  ))}
+                  <span className="pill pill-tool-label">Solana</span>
+                  {['Fee-payer Sponsor'].map(a => (
                     <span key={a} className="pill pill-tool">{a}</span>
                   ))}
                   <span className="pill pill-tool-label">NEAR</span>
